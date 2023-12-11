@@ -1,0 +1,73 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet_morning
+  examples: |
+    - おはよう
+    - おはようございます
+    - よく寝た
+
+- intent: greet_noon
+  examples: |
+    - こんにちは
+    - やっほー
+    - よ
+    - こん
+    - ちゃ
+
+- intent: greet_night
+  examples: |
+    - こんばんは
+    - こんばんわ
+    - ばんわ
+
+- intent: greet_sleep
+  examples: |
+    - おやすみ
+    - おやすみなさい
+    - 寝る
+    - 寝よう
+
+- intent: greet_ty
+  examples: |
+    - ありがとう
+    - ありがとうございます
+    - サンキュー
+    - Thank you
+    - ty
+    - Thx
+    - Thanks
+
+- intent: set_alarm
+  examples: |
+    - アラームをセットする
+    - アラームをセットしたい
+    - アラーム
+    - アラームセットできる
+
+- intent: ask_weather
+  examples: |
+    - 今日の天気は
+    - 今日の天気教えて
+    - 天気はどう
+    - 今日の天気をしりたいです
+    - 今日の気温は
+    - 雨降りそう
+
+- intent: ask_city
+  examples: |
+    - [東京](location)
+    - [大阪](location)
+    - [ロンドン](location)
+    - [ローマ](location)
+    - [香港](location)
+    - [シドニー](location)
+
+- intent: ask_city_weather
+  examples: |
+    - [札幌](location)の天気はどうですか
+    - [ニューヨーク](location)の天気を知りたい
+    - 今日[台湾](location)の天気は
+    - [トロント](location)は今日雨降りそうですか
+    - [シンガポール](location)の気温は

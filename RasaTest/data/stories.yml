@@ -1,0 +1,64 @@
+version: "3.1"
+
+stories:
+
+- story: Greet Morning
+  steps:
+  - intent: greet_morning
+  - action: utter_greet_morning
+  - action: action_back
+
+- story: Greet Noon
+  steps:
+  - intent: greet_noon
+  - action: utter_greet_noon
+  - action: action_back
+
+- story: Greet Night
+  steps:
+  - intent: greet_night
+  - action: utter_greet_night
+  - action: action_back
+
+- story: Greet Sleep
+  steps:
+  - intent: greet_sleep
+  - action: utter_greet_sleep
+  - action: action_back
+
+- story: Greet Thank
+  steps:
+  - intent: greet_ty
+  - action: utter_greet_ty
+  - action: action_back
+
+- story: Set Alarm
+  steps:
+  - intent: set_alarm
+  - action: utter_set_alarm
+  - action: set_time_form
+  - active_loop: set_time_form
+
+- story: Check Weather
+  steps:
+  - intent: ask_weather
+  - action: utter_ask_city
+  - intent: ask_city
+    entities:
+      - location: 東京
+  - slot_was_set:
+    - location: 東京
+  - action: action_check_weather
+  - slot_was_set:
+    - location: null
+
+- story: Check City Weather
+  steps:
+  - intent: ask_city_weather
+    entities:
+      - location: シンガポール
+  - slot_was_set:
+      - location: シンガポール
+  - action: action_check_weather
+  - slot_was_set:
+      - location: null

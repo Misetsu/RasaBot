@@ -1,0 +1,20 @@
+version: "3.1"
+
+rules:
+
+- rule: Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: action_back
+
+- rule: SetAlarm
+  condition:
+  - active_loop: set_time_form
+  steps:
+  - action: set_time_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_set_time
+  - action: action_restart

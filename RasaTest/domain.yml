@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - greet_morning
+  - greet_noon
+  - greet_night
+  - greet_sleep
+  - greet_ty
+  - set_alarm
+  - ask_weather
+  - ask_city
+  - ask_city_weather
+  - nlu_fallback
+
+entities:
+  - Time
+  - location
+
+slots:
+  set_time:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: Time
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: location
+
+responses:
+  utter_greet_morning:
+    - text: "おはよう。"
+    - text: "ん〜おはよう。"
+    - text: "おはよう。朝ごはん作ってくる。"
+  utter_greet_noon:
+    - text: "こんにちは。"
+    - text: "こんにちは。ご飯食べた？"
+  utter_greet_night:
+    - text: "こんばんは。"
+  utter_greet_sleep:
+    - text: "おやすみ。"
+    - text: "ん、もう遅いよ。早く寝な。"
+    - text: "ボクはこれが終わったら寝る。おやすみ。"
+  utter_greet_ty:
+    - text: "どういたしまして。"
+  utter_set_alarm:
+    - text: "何時にする？"
+    - text: "何時のアラーム？"
+  utter_ask_city:
+    - text: "どこの天気？"
+    - text: "場所は？"
+  utter_default:
+    - text: "ごめん。よくわかんない。"
+
+forms:
+  set_time_form:
+    required_slots:
+      - set_time
+
+actions:
+  - action_set_time
+  - action_check_weather
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
